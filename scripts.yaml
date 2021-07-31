@@ -1,0 +1,16 @@
+turn_on_calvin_needs_to_take_his_morning_medicine:
+  alias: Toggle Calvin Needs to Take His Morning Medicine
+  sequence:
+  - service: input_boolean.toggle
+    target:
+      entity_id: input_boolean.calvin_needs_to_take_his_medicine
+  mode: single
+  icon: mdi:pill
+toggle_calvin_needs_to_take_his_evening_medicine:
+  alias: Toggle Calvin Needs to Take His Evening Medicine
+  sequence:
+  - service: input_boolean.toggle
+    target:
+      entity_id: input_boolean.calvin_needs_to_take_his_evening_medicine
+  mode: single
+  icon: mdi:pill

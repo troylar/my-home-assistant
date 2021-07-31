@@ -1,0 +1,263 @@
+- id: '1623003888301'
+  alias: Motion-Activated Basement Hallway Light
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      motion_entity: binary_sensor.basement_hallway_motion_home_security_motion_detection
+      light_target:
+        area_id:
+        - basement_hallway
+        - basement_stairs
+- id: '1623003990298'
+  alias: Motion-Activated Basement Stairs Light
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      motion_entity: binary_sensor.basement_stairs_multi_sensor_home_security_motion_detection
+      light_target:
+        area_id:
+        - basement_hallway
+        - basement_stairs
+      no_motion_wait: 60
+- id: '1623004741322'
+  alias: Motion-Activated Calvin's Bathroom Light
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_switch.yaml
+    input:
+      switch_target:
+        area_id: calvin_s_bathroom
+      motion_entity: binary_sensor.calvins_bathroom_ceiling_motion_home_security_motion_detection
+      no_motion_wait: 60
+- id: '1623004759637'
+  alias: Motion-Activated Calvin's Kitchen Light
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_switch.yaml
+    input:
+      motion_entity: binary_sensor.calvins_kitchen_ceiling_motion_home_security_motion_detection
+      switch_target:
+        area_id: calvin_s_kitchen
+      no_motion_wait: 60
+- id: '1623004806568'
+  alias: Motion-Activated Calvin's Living Room Light
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_switch.yaml
+    input:
+      motion_entity: binary_sensor.node_10_home_security_motion_detection
+      switch_target:
+        area_id: calvin_s_living_room
+      no_motion_wait: 900
+- id: '1623006162691'
+  alias: Start Timer When Calvin Enters Bathroom
+  description: ''
+  use_blueprint:
+    path: homeassistant/start_timer_on_motion.yaml
+    input:
+      timer_target:
+        entity_id: timer.calvin_bathroom_warning
+      motion_entity: binary_sensor.calvins_bathroom_ceiling_motion_home_security_motion_detection
+- id: '1623006246877'
+  alias: Start Timer When Calvin Enters the Kitchen
+  description: ''
+  use_blueprint:
+    path: homeassistant/start_timer_on_motion.yaml
+    input:
+      motion_entity: binary_sensor.calvins_kitchen_ceiling_motion_home_security_motion_detection
+      timer_target:
+        entity_id: timer.calvin_kitchen_motion_warning
+- id: '1623007275692'
+  alias: Alert when Calvin's bathroom timer expires
+  description: ''
+  use_blueprint:
+    path: homeassistant/alert_when_timer_expires.yaml
+    input:
+      timer_entity:
+        entity_id: timer.calvin_bathroom_warning
+      notify_device: a012bff3adcbdf82f500abef4caa64d1
+      notification_title: CALVIN ALERT
+      notification_message: Calvin has been in the bathroom more than five minutes!
+- id: '1623007311912'
+  alias: Alert when Calvin's bathroom timer expires
+  description: ''
+  use_blueprint:
+    path: homeassistant/alert_when_timer_expires.yaml
+    input:
+      timer_entity:
+        entity_id: timer.calvin_kitchen_motion_warning
+      notify_device: a012bff3adcbdf82f500abef4caa64d1
+      notification_title: CALVIN ALERT
+      notification_message: Alert when Calvin's kitchen timer expires
+- id: '1623073152571'
+  alias: Cancel Calvin's Bathroom Timer When Motion Stops
+  description: ''
+  use_blueprint:
+    path: homeassistant/cancel_timer_on_motion_off.yaml
+    input:
+      motion_entity: binary_sensor.calvins_bathroom_ceiling_motion_home_security_motion_detection
+      timer_target:
+        entity_id: timer.calvin_bathroom_warning
+- id: '1623073186366'
+  alias: Cancel Calvin's Kitchen Timer When Motion Stops
+  description: ''
+  use_blueprint:
+    path: homeassistant/cancel_timer_on_motion_off.yaml
+    input:
+      motion_entity: binary_sensor.calvins_kitchen_ceiling_motion_home_security_motion_detection
+      timer_target:
+        entity_id: timer.calvin_kitchen_motion_warning
+- id: '1623254326643'
+  alias: Motion-activated Laundry Room Light
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      motion_entity: binary_sensor.4_in_1_motion_sensor_home_security_motion_detection
+      light_target: 26b0d45599d7e90c1bcaa480f39424d9
+      no_motion_wait: 30
+- id: '1623254953268'
+  alias: Laundry Room Light
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      motion_entity: laun
+      light_target: 26b0d45599d7e90c1bcaa480f39424d9
+- id: '1623254988466'
+  alias: New Automation
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      motion_entity: binary_sensor.4_in_1_motion_sensor_home_security_motion_detection
+      light_target: 26b0d45599d7e90c1bcaa480f39424d9
+- id: '1623255548177'
+  alias: New AutomationlInzdy
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      motion_entity: binary_sensor.4_in_1_motion_sensor_home_security_motion_detection
+      light_target: 26b0d45599d7e90c1bcaa480f39424d9
+- id: '1623255631306'
+  alias: Motion-Activated Laundry Room Light
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      motion_entity: binary_sensor.4_in_1_motion_sensor_home_security_motion_detection
+      light_target: 26b0d45599d7e90c1bcaa480f39424d9
+      no_motion_wait: 30
+- id: '1623255670205'
+  alias: Motion-activated Light
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      motion_entity: binary_sensor.4_in_1_motion_sensor_home_security_motion_detection
+      light_target: 26b0d45599d7e90c1bcaa480f39424d9
+      no_motion_wait: 18
+- id: '1623255777929'
+  alias: Motion-activated Laundry Room Light
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      motion_entity: binary_sensor.4_in_1_motion_sensor_home_security_motion_detection
+      light_target: 26b0d45599d7e90c1bcaa480f39424d9
+- id: '1623256093116'
+  alias: Motion-activated Laundry Room Light
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      motion_entity: binary_sensor.4_in_1_motion_sensor_home_security_motion_detection
+      light_target:
+        entity_id: light.hue_white_lamp_2
+      no_motion_wait: 20
+- id: '1623004979140'
+  alias: Motion-Activated Game Room Lights
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      motion_entity: binary_sensor.game_room_ceiling_motion_home_security_motion_detection
+      no_motion_wait: 900
+      light_target:
+        device_id:
+        - bf1e0bc2ac25deb4199accd0fd30253c
+        - 4df916c16c7781d45deef0dbf206e91d
+        entity_id: light.workout_area_ceiling
+- id: '1627154291065'
+  alias: Toggle action item at scheduled time
+  description: ''
+  use_blueprint:
+    path: homeassistant/toggle_action_item_at_scheduled_time.yaml
+    input:
+      boolean: input_boolean.calvin_needs_to_take_his_evening_medicine
+      time:
+        entity_id: input_datetime.calvin_s_evening_medicine
+- id: '1627167598160'
+  alias: 'Active action item: Calvin''s Morning Medicine'
+  description: ''
+  use_blueprint:
+    path: homeassistant/toggle_action_item_at_scheduled_time.yaml
+    input:
+      boolean: input_boolean.calvin_needs_to_take_his_medicine
+      time:
+        entity_id: input_datetime.calvin_s_morning_medicine
+- id: '1627225666642'
+  alias: Toggle action item at scheduled time
+  description: ''
+  use_blueprint:
+    path: homeassistant/toggle_action_item_at_scheduled_time.yaml
+    input:
+      boolean: input_boolean.calvin_needs_to_take_his_evening_medicine
+      time:
+        entity_id: input_datetime.calvin_s_evening_medicine
+- id: '1627226041200'
+  alias: Toggle action item at scheduled time
+  description: ''
+  use_blueprint:
+    path: homeassistant/toggle_action_item_at_scheduled_time.yaml
+    input:
+      boolean: input_boolean.calvin_needs_to_take_his_evening_medicine
+      time:
+        entity_id: input_datetime.calvin_s_evening_medicine
+- id: '1627226401211'
+  alias: Toggle action item at scheduled time
+  description: ''
+  use_blueprint:
+    path: homeassistant/toggle_action_item_at_scheduled_time.yaml
+    input:
+      action_item_boolean: input_boolean.calvin_needs_to_take_his_medicine
+      activation_time:
+        entity_id: input_datetime.calvin_s_evening_medicine
+- id: '1627226568841'
+  alias: Toggle action item at scheduled time
+  description: ''
+  use_blueprint:
+    path: homeassistant/toggle_action_item_at_scheduled_time.yaml
+    input:
+      action_item_boolean: input_boolean.calvin_needs_to_take_his_medicine
+      activation_time:
+        entity_id: input_datetime.calvin_s_morning_medicine
+- id: '1627227083077'
+  alias: 'Activate Action Item: Calvin''s Morning Medicine'
+  description: ''
+  use_blueprint:
+    path: homeassistant/toggle_action_item_at_scheduled_time.yaml
+    input:
+      action_item_boolean: input_boolean.calvin_needs_to_take_his_morning_medicine
+      activation_time: input_datetime.calvin_s_morning_medicine
+- id: '1627227591342'
+  alias: 'Activate Action Item: Calvin''s Evening Medicine'
+  description: ''
+  use_blueprint:
+    path: homeassistant/toggle_action_item_at_scheduled_time.yaml
+    input:
+      action_item_boolean: input_boolean.calvin_needs_to_take_his_evening_medicine
+      activation_time: input_datetime.calvin_s_evening_medicine

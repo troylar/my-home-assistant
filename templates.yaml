@@ -1,0 +1,20 @@
+- sensor:
+    - name: "Calvin's Location"
+      state: >
+        {% if is_state("binary_sensor.calvins_bathroom_ceiling_motion_home_security_motion_detection", "on") %}
+        Bathroom
+        {% elif is_state("binary_sensor.calvins_kitchen_ceiling_motion_home_security_motion_detection", "on") %}
+        Kitchen
+        {% elif is_state("binary_sensor.node_10_home_security_motion_detection", "on") %}
+        Living Room
+        {% else %}
+        Probably Living Room
+        {% endif %}
+
+- sensor:
+    - name: "Nanny Mode Activated"
+      state: "{{ is_state('input_boolean.calvin_is_home', 'on') and is_state('input_boolean.calvin_has_physical_supervision', 'off') and is_state('input_boolean.calvin_is_in_his_bedroom', 'off') }}"
+
+- sensor:
+    - name: "Night Watchman Mode Activated"
+      state: "{{ is_state('input_boolean.calvin_is_in_his_bedroom', 'on') }}"

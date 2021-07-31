@@ -1,0 +1,43 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_access_key
+    aws_secret_access_key: !secret aws_secret_access_key
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+template: !include templates.yaml
+timer: !include timers.yaml
+
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+  project_id: !secret nest_project_id
+  subscriber_id: !secret nest_project_id
+
+homeassistant:
+  external_url: !secret external_url
+  internal_url: !secret internal_url
+
+eufy:
+  devices:
+    - address: !secret eufy_workout_room_ceiling_light
+      access_token: !secret eufy_access_token
+      type: T1011
+      name: Workout Area Ceiling
+
+notify:
+  name: slack-calvinware-llc
+  platform: slack
+  api_key: !secret slack_api_key
+  default_channel: "#home-assistant"
+
+http:
+  trusted_proxies:
+    - !secret trusted_proxy
+  use_x_forwarded_for: true
